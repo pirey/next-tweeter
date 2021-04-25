@@ -51,11 +51,18 @@ function Bottom({ children }) {
 
 function ActionButton({ children }) {
   return (
-    <div className="flex items-center space-x-1 cursor-pointer group">{children}</div>
+    <div className="flex items-center space-x-1 cursor-pointer group">
+      {children}
+    </div>
   )
 }
 
-function Tweet({ replyCount = 127, retweetCount = 55, likeCount = 7, tweet = "Today's theme is #Cookies, #pixel_dailies" }) {
+function Tweet({
+  replyCount = 127,
+  retweetCount = 55,
+  likeCount = 7,
+  tweet = "Today's theme is #Cookies, #pixel_dailies",
+}) {
   return (
     <Wrap className="text-gray-700 border-b border-gray-200 cursor-pointer hover:bg-gray-100">
       <Avatar />
@@ -90,19 +97,25 @@ function Tweet({ replyCount = 127, retweetCount = 55, likeCount = 7, tweet = "To
             <LightButton className="text-gray-500 group-hover:text-blue-400 group-hover:bg-blue-100">
               {assets.svg.reply}
             </LightButton>
-            <span className="text-xs group-hover:text-blue-400">{+replyCount > 0 ? replyCount : ""}</span>
+            <span className="text-xs group-hover:text-blue-400">
+              {+replyCount > 0 ? replyCount : ""}
+            </span>
           </ActionButton>
           <ActionButton>
             <LightButton className="text-gray-500 group-hover:text-green-400 group-hover:bg-green-100">
               {assets.svg.retweet}
             </LightButton>
-            <span className="text-xs group-hover:text-green-400">{+retweetCount > 0 ? retweetCount : ""}</span>
+            <span className="text-xs group-hover:text-green-400">
+              {+retweetCount > 0 ? retweetCount : ""}
+            </span>
           </ActionButton>
           <ActionButton>
             <LightButton className="text-gray-500 group-hover:text-red-400 group-hover:bg-red-100">
               {assets.svg.like}
             </LightButton>
-            <span className="text-xs group-hover:text-red-400">{+likeCount > 0 ? likeCount : ""}</span>
+            <span className="text-xs group-hover:text-red-400">
+              {+likeCount > 0 ? likeCount : ""}
+            </span>
           </ActionButton>
           <ActionButton>
             <LightButton className="text-gray-500 group-hover:text-blue-400 group-hover:bg-blue-100">

@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Tweeter</title>
+        <title>Home / Tweeter</title>
       </Head>
       <Component {...pageProps} />
     </>

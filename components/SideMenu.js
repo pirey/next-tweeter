@@ -95,9 +95,9 @@ function SideMenuItem({ children }) {
 
 function SideMenu() {
   return (
-    <Wrap className="flex-col justify-between py-2">
+    <Wrap className="flex-col justify-between py-1">
       <div>
-        <div className="mb-2">
+        <div className="">
           <a className="inline-block" href="#">
             <LightButton className="text-blue-400 hover:bg-blue-100">
               {assets.svg.twitter}

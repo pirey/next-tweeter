@@ -1,5 +1,8 @@
 import { Editor, EditorState, convertFromRaw } from "draft-js"
 import { useState } from "react"
+import Avatar from "./Avatar"
+import LightButton from "./LightButton"
+import Wrap from "./Wrap"
 
 const assets = {
   svg: {
@@ -65,7 +68,7 @@ const assets = {
 
 function Header() {
   return (
-    <div className="flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200 cursor-pointer">
+    <div className="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 cursor-pointer">
       <div className="text-xl font-black">Home</div>
       <div className="">
         <LightButton title="Top Tweets">{assets.svg.topTweets}</LightButton>
@@ -74,27 +77,8 @@ function Header() {
   )
 }
 
-function Avatar() {
-  return (
-    <div className="px-3 py-2">
-      <img
-        className="w-12 rounded-full"
-        src="https://pbs.twimg.com/profile_images/1028605252168105990/xdHiCPOa_bigger.jpg"
-        alt="User avatar"
-      />
-    </div>
-  )
-}
-
-function LightButton({ children, title }) {
-  return (
-    <div
-      title={title}
-      className="p-2 text-blue-400 rounded-full cursor-pointer hover:bg-blue-100"
-    >
-      {children}
-    </div>
-  )
+function Footer() {
+  return <div className="h-3 bg-gray-100 border border-gray-200"></div>
 }
 
 function ToolbarButton(props) {
@@ -116,7 +100,7 @@ function Toolbar({ children }) {
   return <div className="flex">{children}</div>
 }
 
-function Footer({ children }) {
+function Bottom({ children }) {
   return (
     <div className="flex items-center justify-between py-3">{children}</div>
   )
@@ -170,11 +154,11 @@ function TweetBox() {
     setFocused(true)
   }
   return (
-    <div>
+    <div className="">
       <Header />
-      <div className="flex bg-white">
+      <Wrap>
         <Avatar />
-        <div className="flex flex-col flex-1 pr-4">
+        <div className="flex flex-col flex-1">
           <TweetEditor
             placeholder="What's happening?"
             editorState={editorState}
@@ -184,7 +168,7 @@ function TweetBox() {
 
           {focused ? <PrivacyOption /> : null}
 
-          <Footer>
+          <Bottom>
             <Toolbar>
               <ToolbarButton title="Media">{assets.svg.media}</ToolbarButton>
               <ToolbarButton title="Gif">{assets.svg.gif}</ToolbarButton>
@@ -196,9 +180,10 @@ function TweetBox() {
             </Toolbar>
 
             <TweetButton disabled={!hasText} />
-          </Footer>
+          </Bottom>
         </div>
-      </div>
+      </Wrap>
+      <Footer />
     </div>
   )
 }

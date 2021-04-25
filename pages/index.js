@@ -5,7 +5,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-100">
       <div className="h-24"></div>
       <div className="px-4 py-6">
-        <div className="max-w-lg m-auto overflow-hidden rounded-lg shadow">
+        <div className="max-w-xl m-auto overflow-hidden rounded-lg shadow">
           <TweetBox />
         </div>
       </div>

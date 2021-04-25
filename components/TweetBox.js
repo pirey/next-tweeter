@@ -3,6 +3,13 @@ import { useState } from "react"
 
 const assets = {
   svg: {
+    topTweets: (
+      <svg viewBox="0 0 24 24" className="flex-shrink-0 w-5 fill-current">
+        <g>
+          <path d="M22.772 10.506l-5.618-2.192-2.16-6.5c-.102-.307-.39-.514-.712-.514s-.61.207-.712.513l-2.16 6.5-5.62 2.192c-.287.112-.477.39-.477.7s.19.585.478.698l5.62 2.192 2.16 6.5c.102.306.39.513.712.513s.61-.207.712-.513l2.16-6.5 5.62-2.192c.287-.112.477-.39.477-.7s-.19-.585-.478-.697zm-6.49 2.32c-.208.08-.37.25-.44.46l-1.56 4.695-1.56-4.693c-.07-.21-.23-.38-.438-.462l-4.155-1.62 4.154-1.622c.208-.08.37-.25.44-.462l1.56-4.693 1.56 4.694c.07.212.23.382.438.463l4.155 1.62-4.155 1.622zM6.663 3.812h-1.88V2.05c0-.414-.337-.75-.75-.75s-.75.336-.75.75v1.762H1.5c-.414 0-.75.336-.75.75s.336.75.75.75h1.782v1.762c0 .414.336.75.75.75s.75-.336.75-.75V5.312h1.88c.415 0 .75-.336.75-.75s-.335-.75-.75-.75zm2.535 15.622h-1.1v-1.016c0-.414-.335-.75-.75-.75s-.75.336-.75.75v1.016H5.57c-.414 0-.75.336-.75.75s.336.75.75.75H6.6v1.016c0 .414.335.75.75.75s.75-.336.75-.75v-1.016h1.098c.414 0 .75-.336.75-.75s-.336-.75-.75-.75z"></path>
+        </g>
+      </svg>
+    ),
     earth: (
       <svg viewBox="0 0 24 24" className="flex-shrink-0 w-5 fill-current">
         <g>
@@ -56,6 +63,17 @@ const assets = {
   },
 }
 
+function Header() {
+  return (
+    <div className="flex items-center justify-between px-4 py-3 bg-white border-b border-gray-200 cursor-pointer">
+      <div className="text-xl font-black">Home</div>
+      <div className="">
+        <LightButton title="Top Tweets">{assets.svg.topTweets}</LightButton>
+      </div>
+    </div>
+  )
+}
+
 function Avatar() {
   return (
     <div className="px-3 py-2">
@@ -68,7 +86,7 @@ function Avatar() {
   )
 }
 
-function ToolbarButton({ children, title }) {
+function LightButton({ children, title }) {
   return (
     <div
       title={title}
@@ -77,6 +95,10 @@ function ToolbarButton({ children, title }) {
       {children}
     </div>
   )
+}
+
+function ToolbarButton(props) {
+  return <LightButton {...props} />
 }
 
 function PrivacyOption() {
@@ -148,31 +170,34 @@ function TweetBox() {
     setFocused(true)
   }
   return (
-    <div className="flex bg-white">
-      <Avatar />
-      <div className="flex flex-col flex-1 pr-4">
-        <TweetEditor
-          placeholder="What's happening?"
-          editorState={editorState}
-          onChange={handleChange}
-          onFocus={handleFocus}
-        />
+    <div>
+      <Header />
+      <div className="flex bg-white">
+        <Avatar />
+        <div className="flex flex-col flex-1 pr-4">
+          <TweetEditor
+            placeholder="What's happening?"
+            editorState={editorState}
+            onChange={handleChange}
+            onFocus={handleFocus}
+          />
 
-        {focused ? <PrivacyOption /> : null}
+          {focused ? <PrivacyOption /> : null}
 
-        <Footer>
-          <Toolbar>
-            <ToolbarButton title="Media">{assets.svg.media}</ToolbarButton>
-            <ToolbarButton title="Gif">{assets.svg.gif}</ToolbarButton>
-            <ToolbarButton title="Poll">{assets.svg.poll}</ToolbarButton>
-            <ToolbarButton title="Emoji">{assets.svg.emoji}</ToolbarButton>
-            <ToolbarButton title="Schedule">
-              {assets.svg.schedule}
-            </ToolbarButton>
-          </Toolbar>
+          <Footer>
+            <Toolbar>
+              <ToolbarButton title="Media">{assets.svg.media}</ToolbarButton>
+              <ToolbarButton title="Gif">{assets.svg.gif}</ToolbarButton>
+              <ToolbarButton title="Poll">{assets.svg.poll}</ToolbarButton>
+              <ToolbarButton title="Emoji">{assets.svg.emoji}</ToolbarButton>
+              <ToolbarButton title="Schedule">
+                {assets.svg.schedule}
+              </ToolbarButton>
+            </Toolbar>
 
-          <TweetButton disabled={!hasText} />
-        </Footer>
+            <TweetButton disabled={!hasText} />
+          </Footer>
+        </div>
       </div>
     </div>
   )

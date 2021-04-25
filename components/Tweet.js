@@ -77,7 +77,7 @@ function Tweet({ replyCount = 127, retweetCount = 55, likeCount = 7, tweet = "To
             </a>
           </div>
           <div className="">
-            <LightButton color="text-gray-500 hover:text-blue-400 hover:bg-blue-100">
+            <LightButton className="text-gray-500 hover:text-blue-400 hover:bg-blue-100">
               {assets.svg.more}
             </LightButton>
           </div>
@@ -87,25 +87,25 @@ function Tweet({ replyCount = 127, retweetCount = 55, likeCount = 7, tweet = "To
 
         <Bottom>
           <ActionButton>
-            <LightButton color="text-gray-500 group-hover:text-blue-400 group-hover:bg-blue-100">
+            <LightButton className="text-gray-500 group-hover:text-blue-400 group-hover:bg-blue-100">
               {assets.svg.reply}
             </LightButton>
             <span className="text-xs group-hover:text-blue-400">{+replyCount > 0 ? replyCount : ""}</span>
           </ActionButton>
           <ActionButton>
-            <LightButton color="text-gray-500 group-hover:text-green-400 group-hover:bg-green-100">
+            <LightButton className="text-gray-500 group-hover:text-green-400 group-hover:bg-green-100">
               {assets.svg.retweet}
             </LightButton>
             <span className="text-xs group-hover:text-green-400">{+retweetCount > 0 ? retweetCount : ""}</span>
           </ActionButton>
           <ActionButton>
-            <LightButton color="text-gray-500 group-hover:text-red-400 group-hover:bg-red-100">
+            <LightButton className="text-gray-500 group-hover:text-red-400 group-hover:bg-red-100">
               {assets.svg.like}
             </LightButton>
             <span className="text-xs group-hover:text-red-400">{+likeCount > 0 ? likeCount : ""}</span>
           </ActionButton>
           <ActionButton>
-            <LightButton color="text-gray-500 group-hover:text-blue-400 group-hover:bg-blue-100">
+            <LightButton className="text-gray-500 group-hover:text-blue-400 group-hover:bg-blue-100">
               {assets.svg.share}
             </LightButton>
           </ActionButton>

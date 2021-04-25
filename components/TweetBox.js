@@ -71,7 +71,7 @@ function Header() {
     <div className="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 cursor-pointer">
       <div className="text-xl font-black">Home</div>
       <div className="">
-        <LightButton title="Top Tweets">{assets.svg.topTweets}</LightButton>
+        <LightButton title="Top Tweets" className="text-blue-400 hover:bg-blue-100">{assets.svg.topTweets}</LightButton>
       </div>
     </div>
   )
@@ -82,7 +82,7 @@ function Footer() {
 }
 
 function ToolbarButton(props) {
-  return <LightButton {...props} />
+  return <LightButton className="text-blue-400 hover:bg-blue-100" {...props} />
 }
 
 function PrivacyOption() {

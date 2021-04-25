@@ -1,8 +1,8 @@
-function LightButton({ children, title, color = "text-blue-400 hover:bg-blue-100 " }) {
+function LightButton({ children, title, className }) {
   return (
     <div
       title={title}
-      className={`p-2 ${color} rounded-full cursor-pointer`}
+      className={`p-2 rounded-full cursor-pointer ${className}`}
     >
       {children}
     </div>

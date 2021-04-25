@@ -5,7 +5,7 @@ import Button from "./Button"
 import LightButton from "./LightButton"
 import Wrap from "./Wrap"
 
-const assets = {
+export const assets = {
   svg: {
     topTweets: (
       <svg viewBox="0 0 24 24" className="flex-shrink-0 w-5 fill-current">
@@ -67,23 +67,7 @@ const assets = {
   },
 }
 
-function Header() {
-  return (
-    <div className="flex items-center justify-between px-4 py-2 bg-white border-b border-gray-200 cursor-pointer">
-      <div className="text-xl font-black">Home</div>
-      <div className="">
-        <LightButton
-          title="Top Tweets"
-          className="text-blue-400 hover:bg-blue-100"
-        >
-          {assets.svg.topTweets}
-        </LightButton>
-      </div>
-    </div>
-  )
-}
-
-function Footer() {
+function Separator() {
   return <div className="h-3 bg-gray-100 border border-gray-200"></div>
 }
 
@@ -154,7 +138,6 @@ function TweetBox() {
   }
   return (
     <div className="">
-      <Header />
       <Wrap>
         <Avatar />
         <div className="flex flex-col flex-1">
@@ -182,7 +165,7 @@ function TweetBox() {
           </Bottom>
         </div>
       </Wrap>
-      <Footer />
+      <Separator />
     </div>
   )
 }

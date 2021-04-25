@@ -71,7 +71,26 @@ const assets = {
         </g>
       </svg>
     ),
+    ellipsis: (
+      <svg viewBox="0 0 24 24" className="w-5 fill-current">
+        <g>
+          <circle cx="5" cy="12" r="2"></circle>
+          <circle cx="12" cy="12" r="2"></circle>
+          <circle cx="19" cy="12" r="2"></circle>
+        </g>
+      </svg>
+    ),
   },
+}
+
+function SideMenuItem({ children }) {
+  return (
+    <a href="#" className="block group">
+      <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
+        {children}
+      </LightButton>
+    </a>
+  )
 }
 
 function SideMenu() {
@@ -85,60 +104,57 @@ function SideMenu() {
             </LightButton>
           </a>
         </div>
-        <a href="#" className="block group">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
-            <span>{assets.svg.home}</span>{" "}
-            <span className="ml-4 text-xl">Home</span>
-          </LightButton>
-        </a>
-        <a href="#" className="block group">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
-            <span>{assets.svg.explore}</span>{" "}
-            <span className="ml-4 text-xl">Explore</span>
-          </LightButton>
-        </a>
-        <a href="#" className="block group">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
-            <span>{assets.svg.notifications}</span>{" "}
-            <span className="ml-4 text-xl">Notification</span>
-          </LightButton>
-        </a>
-        <a href="#" className="block group">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
-            <span>{assets.svg.messages}</span>{" "}
-            <span className="ml-4 text-xl">Messages</span>
-          </LightButton>
-        </a>
-        <a href="#" className="block group">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
-            <span>{assets.svg.bookmarks}</span>{" "}
-            <span className="ml-4 text-xl">Bookmarks</span>
-          </LightButton>
-        </a>
-        <a href="#" className="block group">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
-            <span>{assets.svg.lists}</span>{" "}
-            <span className="ml-4 text-xl">Lists</span>
-          </LightButton>
-        </a>
-        <a href="#" className="block group">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
-            <span>{assets.svg.profile}</span>{" "}
-            <span className="ml-4 text-xl">Profile</span>
-          </LightButton>
-        </a>
-        <a href="#" className="block group">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
-            <span>{assets.svg.more}</span>{" "}
-            <span className="ml-4 text-xl">More</span>
-          </LightButton>
-        </a>
+        <SideMenuItem>
+          <span className="text-blue-400">{assets.svg.home}</span>{" "}
+          <span className="ml-4 text-xl text-blue-400">Home</span>
+        </SideMenuItem>
+        <SideMenuItem>
+          <span>{assets.svg.explore}</span>{" "}
+          <span className="ml-4 text-xl">Explore</span>
+        </SideMenuItem>
+        <SideMenuItem>
+          <span>{assets.svg.notifications}</span>{" "}
+          <span className="ml-4 text-xl">Notification</span>
+        </SideMenuItem>
+        <SideMenuItem>
+          <span>{assets.svg.messages}</span>{" "}
+          <span className="ml-4 text-xl">Messages</span>
+        </SideMenuItem>
+        <SideMenuItem>
+          <span>{assets.svg.bookmarks}</span>{" "}
+          <span className="ml-4 text-xl">Bookmarks</span>
+        </SideMenuItem>
+        <SideMenuItem>
+          <span>{assets.svg.lists}</span>{" "}
+          <span className="ml-4 text-xl">Lists</span>
+        </SideMenuItem>
+        <SideMenuItem>
+          <span>{assets.svg.profile}</span>{" "}
+          <span className="ml-4 text-xl">Profile</span>
+        </SideMenuItem>
+        <SideMenuItem>
+          <span>{assets.svg.more}</span>{" "}
+          <span className="ml-4 text-xl">More</span>
+        </SideMenuItem>
         <div className="mt-2">
           <Button className="block max-w-full py-3 w-52">Tweet</Button>
         </div>
       </div>
 
-      <div></div>
+      <div className="my-4">
+        <LightButton className="flex items-center justify-between px-4 py-3 hover:bg-blue-100">
+          <img
+            className="flex-shrink-0 w-10 h-10 rounded-full"
+            src="https://pbs.twimg.com/profile_images/1028605252168105990/xdHiCPOa_bigger.jpg"
+            alt="User's picture"
+          />
+          <div className="mx-3">
+            <span className="block font-bold leading-none">Yeri Pratama</span>
+            <span className="block text-gray-500">@_pirey</span>
+          </div>
+          <span>{assets.svg.ellipsis}</span>
+        </LightButton>
+      </div>
     </Wrap>
   )
 }

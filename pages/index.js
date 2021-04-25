@@ -1,3 +1,4 @@
+import HomeHeader from "../components/HomeHeader"
 import SideMenu from "../components/SideMenu"
 import Tweet from "../components/Tweet"
 import TweetBox from "../components/TweetBox"
@@ -11,6 +12,9 @@ export default function Home() {
         </div>
         <div className="flex-1 overflow-y-auto">
           <div className="max-w-screen-sm border border-t-0 border-b-0">
+            <div className="sticky top-0 z-50 bg-white">
+              <HomeHeader />
+            </div>
             <TweetBox />
             <Tweet replyCount={18} retweetCount={3} likeCount={16} />
             <Tweet replyCount={127} retweetCount={20} likeCount={1667} />

@@ -25,7 +25,7 @@ const assets = {
         </g>
       </svg>
     ),
-    notification: (
+    notifications: (
       <svg viewBox="0 0 24 24" className="w-6 fill-current">
         <g>
           <path d="M21.697 16.468c-.02-.016-2.14-1.64-2.103-6.03.02-2.532-.812-4.782-2.347-6.335C15.872 2.71 14.01 1.94 12.005 1.93h-.013c-2.004.01-3.866.78-5.242 2.174-1.534 1.553-2.368 3.802-2.346 6.334.037 4.33-2.02 5.967-2.102 6.03-.26.193-.366.53-.265.838.102.308.39.515.712.515h4.92c.102 2.31 1.997 4.16 4.33 4.16s4.226-1.85 4.327-4.16h4.922c.322 0 .61-.206.71-.514.103-.307-.003-.645-.263-.838zM12 20.478c-1.505 0-2.73-1.177-2.828-2.658h5.656c-.1 1.48-1.323 2.66-2.828 2.66zM4.38 16.32c.74-1.132 1.548-3.028 1.524-5.896-.018-2.16.644-3.982 1.913-5.267C8.91 4.05 10.397 3.437 12 3.43c1.603.008 3.087.62 4.18 1.728 1.27 1.285 1.933 3.106 1.915 5.267-.024 2.868.785 4.765 1.525 5.896H4.38z"></path>
@@ -36,6 +36,21 @@ const assets = {
       <svg viewBox="0 0 24 24" className="w-6 fill-current">
         <g>
           <path d="M19.25 3.018H4.75C3.233 3.018 2 4.252 2 5.77v12.495c0 1.518 1.233 2.753 2.75 2.753h14.5c1.517 0 2.75-1.235 2.75-2.753V5.77c0-1.518-1.233-2.752-2.75-2.752zm-14.5 1.5h14.5c.69 0 1.25.56 1.25 1.25v.714l-8.05 5.367c-.273.18-.626.182-.9-.002L3.5 6.482v-.714c0-.69.56-1.25 1.25-1.25zm14.5 14.998H4.75c-.69 0-1.25-.56-1.25-1.25V8.24l7.24 4.83c.383.256.822.384 1.26.384.44 0 .877-.128 1.26-.383l7.24-4.83v10.022c0 .69-.56 1.25-1.25 1.25z"></path>
+        </g>
+      </svg>
+    ),
+    bookmarks: (
+      <svg viewBox="0 0 24 24" className="w-6 fill-current">
+        <g>
+          <path d="M19.9 23.5c-.157 0-.312-.05-.442-.144L12 17.928l-7.458 5.43c-.228.164-.53.19-.782.06-.25-.127-.41-.385-.41-.667V5.6c0-1.24 1.01-2.25 2.25-2.25h12.798c1.24 0 2.25 1.01 2.25 2.25v17.15c0 .282-.158.54-.41.668-.106.055-.223.082-.34.082zM12 16.25c.155 0 .31.048.44.144l6.71 4.883V5.6c0-.412-.337-.75-.75-.75H5.6c-.413 0-.75.338-.75.75v15.677l6.71-4.883c.13-.096.285-.144.44-.144z"></path>
+        </g>
+      </svg>
+    ),
+    lists: (
+      <svg viewBox="0 0 24 24" className="w-6 fill-current">
+        <g>
+          <path d="M19.75 22H4.25C3.01 22 2 20.99 2 19.75V4.25C2 3.01 3.01 2 4.25 2h15.5C20.99 2 22 3.01 22 4.25v15.5c0 1.24-1.01 2.25-2.25 2.25zM4.25 3.5c-.414 0-.75.337-.75.75v15.5c0 .413.336.75.75.75h15.5c.414 0 .75-.337.75-.75V4.25c0-.413-.336-.75-.75-.75H4.25z"></path>
+          <path d="M17 8.64H7c-.414 0-.75-.337-.75-.75s.336-.75.75-.75h10c.414 0 .75.335.75.75s-.336.75-.75.75zm0 4.11H7c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h10c.414 0 .75.336.75.75s-.336.75-.75.75zm-5 4.11H7c-.414 0-.75-.335-.75-.75s.336-.75.75-.75h5c.414 0 .75.337.75.75s-.336.75-.75.75z"></path>
         </g>
       </svg>
     ),
@@ -61,53 +76,65 @@ const assets = {
 
 function SideMenu() {
   return (
-    <Wrap className="flex-col justify-between py-3">
+    <Wrap className="flex-col justify-between py-2">
       <div>
-        <div className="mb-4">
+        <div className="mb-2">
           <a className="inline-block" href="#">
-            <LightButton className="-m-2 text-blue-400 hover:bg-blue-100">
+            <LightButton className="text-blue-400 hover:bg-blue-100">
               {assets.svg.twitter}
             </LightButton>
           </a>
         </div>
-        <div className="">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 -ml-4 -mr-6 font-bold hover:text-blue-400 hover:bg-blue-100">
+        <a href="#" className="block group">
+          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
             <span>{assets.svg.home}</span>{" "}
             <span className="ml-4 text-xl">Home</span>
           </LightButton>
-        </div>
-        <div className="">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 -ml-4 -mr-6 font-bold hover:text-blue-400 hover:bg-blue-100">
+        </a>
+        <a href="#" className="block group">
+          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
             <span>{assets.svg.explore}</span>{" "}
             <span className="ml-4 text-xl">Explore</span>
           </LightButton>
-        </div>
-        <div className="">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 -ml-4 -mr-6 font-bold hover:text-blue-400 hover:bg-blue-100">
-            <span>{assets.svg.notification}</span>{" "}
+        </a>
+        <a href="#" className="block group">
+          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
+            <span>{assets.svg.notifications}</span>{" "}
             <span className="ml-4 text-xl">Notification</span>
           </LightButton>
-        </div>
-        <div className="">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 -ml-4 -mr-6 font-bold hover:text-blue-400 hover:bg-blue-100">
+        </a>
+        <a href="#" className="block group">
+          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
             <span>{assets.svg.messages}</span>{" "}
             <span className="ml-4 text-xl">Messages</span>
           </LightButton>
-        </div>
-        <div className="">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 -ml-4 -mr-6 font-bold hover:text-blue-400 hover:bg-blue-100">
+        </a>
+        <a href="#" className="block group">
+          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
+            <span>{assets.svg.bookmarks}</span>{" "}
+            <span className="ml-4 text-xl">Bookmarks</span>
+          </LightButton>
+        </a>
+        <a href="#" className="block group">
+          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
+            <span>{assets.svg.lists}</span>{" "}
+            <span className="ml-4 text-xl">Lists</span>
+          </LightButton>
+        </a>
+        <a href="#" className="block group">
+          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
             <span>{assets.svg.profile}</span>{" "}
             <span className="ml-4 text-xl">Profile</span>
           </LightButton>
-        </div>
-        <div className="">
-          <LightButton className="inline-flex py-3 pl-4 pr-6 -ml-4 -mr-6 font-bold hover:text-blue-400 hover:bg-blue-100">
+        </a>
+        <a href="#" className="block group">
+          <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
             <span>{assets.svg.more}</span>{" "}
             <span className="ml-4 text-xl">More</span>
           </LightButton>
-        </div>
-        <div className="">
-          <Button className="block max-w-full py-3 mt-4 w-52">Tweet</Button>
+        </a>
+        <div className="mt-2">
+          <Button className="block max-w-full py-3 w-52">Tweet</Button>
         </div>
       </div>
 

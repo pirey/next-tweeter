@@ -11,31 +11,33 @@ export default function Home() {
           <SideMenu />
         </div>
         <div className="flex-1 overflow-y-auto">
-          <div className="max-w-screen-sm border border-t-0 border-b-0">
-            <div className="sticky top-0 z-50 bg-white">
-              <HomeHeader />
+          <div className="flex items-stretch justify-between max-w-screen-lg">
+            <div className="flex-1 max-w-screen-sm border border-t-0 border-b-0">
+              <div className="sticky top-0 z-50 bg-white">
+                <HomeHeader />
+              </div>
+              <TweetBox />
+              <Tweet replyCount={18} retweetCount={3} likeCount={16} />
+              <Tweet replyCount={127} retweetCount={20} likeCount={1667} />
+              <Tweet replyCount={8} retweetCount={29} likeCount={97} />
+              <Tweet replyCount={48} retweetCount={4} likeCount={23} />
+              <Tweet replyCount={87} retweetCount={0} likeCount={3} />
+              <Tweet replyCount={0} retweetCount={0} likeCount={2} />
+              <Tweet replyCount={18} retweetCount={3} likeCount={16} />
+              <Tweet replyCount={127} retweetCount={20} likeCount={1667} />
+              <Tweet replyCount={8} retweetCount={29} likeCount={97} />
+              <Tweet replyCount={48} retweetCount={4} likeCount={23} />
+              <Tweet replyCount={87} retweetCount={0} likeCount={3} />
+              <Tweet replyCount={0} retweetCount={0} likeCount={2} />
+              <Tweet replyCount={18} retweetCount={3} likeCount={16} />
+              <Tweet replyCount={127} retweetCount={20} likeCount={1667} />
+              <Tweet replyCount={8} retweetCount={29} likeCount={97} />
+              <Tweet replyCount={48} retweetCount={4} likeCount={23} />
+              <Tweet replyCount={87} retweetCount={0} likeCount={3} />
+              <Tweet replyCount={0} retweetCount={0} likeCount={2} />
             </div>
-            <TweetBox />
-            <Tweet replyCount={18} retweetCount={3} likeCount={16} />
-            <Tweet replyCount={127} retweetCount={20} likeCount={1667} />
-            <Tweet replyCount={8} retweetCount={29} likeCount={97} />
-            <Tweet replyCount={48} retweetCount={4} likeCount={23} />
-            <Tweet replyCount={87} retweetCount={0} likeCount={3} />
-            <Tweet replyCount={0} retweetCount={0} likeCount={2} />
-            <Tweet replyCount={18} retweetCount={3} likeCount={16} />
-            <Tweet replyCount={127} retweetCount={20} likeCount={1667} />
-            <Tweet replyCount={8} retweetCount={29} likeCount={97} />
-            <Tweet replyCount={48} retweetCount={4} likeCount={23} />
-            <Tweet replyCount={87} retweetCount={0} likeCount={3} />
-            <Tweet replyCount={0} retweetCount={0} likeCount={2} />
-            <Tweet replyCount={18} retweetCount={3} likeCount={16} />
-            <Tweet replyCount={127} retweetCount={20} likeCount={1667} />
-            <Tweet replyCount={8} retweetCount={29} likeCount={97} />
-            <Tweet replyCount={48} retweetCount={4} likeCount={23} />
-            <Tweet replyCount={87} retweetCount={0} likeCount={3} />
-            <Tweet replyCount={0} retweetCount={0} likeCount={2} />
+            <div className="w-96">{/* right sidebar */}</div>
           </div>
-          <div className="max-w-sm w-72">{/* right sidebar */}</div>
         </div>
       </div>
     </div>

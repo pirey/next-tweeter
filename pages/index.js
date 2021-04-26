@@ -1,5 +1,7 @@
 import HomeHeader from "../components/HomeHeader"
+import Search from "../components/Search"
 import SideMenu from "../components/SideMenu"
+import StickyHeader from "../components/StickyHeader"
 import Tweet from "../components/Tweet"
 import TweetBox from "../components/TweetBox"
 
@@ -13,9 +15,9 @@ export default function Home() {
         <div className="flex-1 overflow-y-auto">
           <div className="flex items-stretch justify-between max-w-screen-lg">
             <div className="flex-1 max-w-screen-sm border border-t-0 border-b-0">
-              <div className="sticky top-0 z-50 bg-white">
+              <StickyHeader>
                 <HomeHeader />
-              </div>
+              </StickyHeader>
               <TweetBox />
               <Tweet replyCount={18} retweetCount={3} likeCount={16} />
               <Tweet replyCount={127} retweetCount={20} likeCount={1667} />
@@ -36,7 +38,11 @@ export default function Home() {
               <Tweet replyCount={87} retweetCount={0} likeCount={3} />
               <Tweet replyCount={0} retweetCount={0} likeCount={2} />
             </div>
-            <div className="w-96">{/* right sidebar */}</div>
+            <div className="w-80">
+              <StickyHeader>
+                <Search />
+              </StickyHeader>
+            </div>
           </div>
         </div>
       </div>

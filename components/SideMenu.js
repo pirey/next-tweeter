@@ -85,7 +85,7 @@ const assets = {
 
 function SideMenuItem({ children }) {
   return (
-    <a href="#" className="block group">
+    <a href="#" className="block my-1 group">
       <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
         {children}
       </LightButton>
@@ -136,21 +136,23 @@ function SideMenu() {
           <span>{assets.svg.more}</span>{" "}
           <span className="ml-4 text-xl">More</span>
         </SideMenuItem>
-        <div className="mt-2">
+        <div className="mt-4">
           <Button className="block max-w-full py-3 w-52">Tweet</Button>
         </div>
       </div>
 
       <div className="my-4">
         <LightButton className="flex items-center justify-between px-4 py-3 hover:bg-blue-100">
-          <img
-            className="flex-shrink-0 w-10 h-10 rounded-full"
-            src="https://pbs.twimg.com/profile_images/1028605252168105990/xdHiCPOa_bigger.jpg"
-            alt="User's picture"
-          />
-          <div className="mx-3">
-            <span className="block font-bold leading-none">Yeri Pratama</span>
-            <span className="block text-gray-500">@_pirey</span>
+          <div className="flex">
+            <img
+              className="flex-shrink-0 w-10 h-10 rounded-full"
+              src="https://pbs.twimg.com/profile_images/1028605252168105990/xdHiCPOa_bigger.jpg"
+              alt="User's picture"
+            />
+            <div className="mx-3">
+              <span className="block font-bold leading-none">Yeri Pratama</span>
+              <span className="block text-gray-500">@_pirey</span>
+            </div>
           </div>
           <span>{assets.svg.ellipsis}</span>
         </LightButton>

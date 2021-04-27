@@ -8,17 +8,24 @@ import TweetBox from "../components/TweetBox"
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <div className="flex items-stretch justify-center h-screen m-auto sm:container">
-        <div className="relative flex justify-end flex-1 max-w-sm overflow-y-auto">
-          <SideMenu />
+      <div className="flex items-stretch h-screen">
+        {/* sidemenu */}
+        <div className="relative items-stretch justify-end flex-auto hidden sm:flex">
+          <div className="flex items-stretch overflow-y-auto xl:w-72">
+            <SideMenu />
+          </div>
         </div>
-        <div className="flex-1 overflow-y-auto">
-          <div className="flex items-stretch justify-between max-w-screen-lg">
-            <div className="flex-1 max-w-screen-sm border border-t-0 border-b-0">
+        {/* main content */}
+        <div className="flex-auto overflow-y-auto">
+          <div className="flex justify-between w-full max-w-5xl">
+            {/* center */}
+            <div className="flex-1 w-screen border border-t-0 border-b-0 md:max-w-screen-sm">
               <StickyHeader>
                 <HomeHeader />
               </StickyHeader>
-              <TweetBox />
+              <div className="hidden md:block">
+                <TweetBox />
+              </div>
               <Tweet replyCount={18} retweetCount={3} likeCount={16} />
               <Tweet replyCount={127} retweetCount={20} likeCount={1667} />
               <Tweet replyCount={8} retweetCount={29} likeCount={97} />
@@ -38,7 +45,8 @@ export default function Home() {
               <Tweet replyCount={87} retweetCount={0} likeCount={3} />
               <Tweet replyCount={0} retweetCount={0} likeCount={2} />
             </div>
-            <div className="w-80">
+            {/* right */}
+            <div className="hidden mr-4 w-80 lg:block">
               <StickyHeader>
                 <Search />
               </StickyHeader>

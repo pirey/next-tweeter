@@ -4,6 +4,13 @@ import LightButton from "./LightButton"
 
 const assets = {
   svg: {
+    tweet: (
+      <svg viewBox="0 0 24 24" className="w-5 fill-current">
+        <g>
+          <path d="M8.8 7.2H5.6V3.9c0-.4-.3-.8-.8-.8s-.7.4-.7.8v3.3H.8c-.4 0-.8.3-.8.8s.3.8.8.8h3.3v3.3c0 .4.3.8.8.8s.8-.3.8-.8V8.7H9c.4 0 .8-.3.8-.8s-.5-.7-1-.7zm15-4.9v-.1h-.1c-.1 0-9.2 1.2-14.4 11.7-3.8 7.6-3.6 9.9-3.3 9.9.3.1 3.4-6.5 6.7-9.2 5.2-1.1 6.6-3.6 6.6-3.6s-1.5.2-2.1.2c-.8 0-1.4-.2-1.7-.3 1.3-1.2 2.4-1.5 3.5-1.7.9-.2 1.8-.4 3-1.2 2.2-1.6 1.9-5.5 1.8-5.7z"></path>
+        </g>
+      </svg>
+    ),
     twitter: (
       <svg viewBox="0 0 24 24" className="w-8 fill-current">
         <g>
@@ -83,19 +90,67 @@ const assets = {
   },
 }
 
-function SideMenuItem({ children }) {
+function SideMenuItem({ title, icon, active }) {
+  const iconActiveClass = active ? `text-blue-400` : ``
+  const titleActiveClass = active ? `text-blue-400` : ``
   return (
     <a href="#" className="block my-1 group">
-      <LightButton className="inline-flex py-3 pl-4 pr-6 font-bold group-hover:text-blue-400 group-hover:bg-blue-100">
-        {children}
+      <LightButton className="inline-flex px-3 py-3 font-bold xl:py-3 xl:pl-4 xl:pr-6 group-hover:text-blue-400 group-hover:bg-blue-100">
+        <span className={iconActiveClass}>{icon}</span>{" "}
+        <span className={`ml-4 text-xl hidden xl:inline ${titleActiveClass}`}>
+          {title}
+        </span>
       </LightButton>
     </a>
   )
 }
 
+function TweetButton() {
+  return (
+    <>
+      <div className="inline-block px-1 xl:hidden">
+        <Button circle>
+          <span>{assets.svg.tweet}</span>
+        </Button>
+      </div>
+      <Button className="hidden xl:block w-52">
+        <span>Tweet</span>
+      </Button>
+    </>
+  )
+}
+
+function UserMenu() {
+  return (
+    <>
+      <LightButton className="inline-block px-1 md:py-3 md:px-3 xl:hidden hover:bg-blue-100">
+        <img
+          className="flex-shrink-0 w-10 h-10 rounded-full"
+          src="https://pbs.twimg.com/profile_images/1028605252168105990/xdHiCPOa_bigger.jpg"
+          alt="User's picture"
+        />
+      </LightButton>
+      <LightButton className="items-center justify-between hidden px-4 py-3 xl:flex hover:bg-blue-100">
+        <div className="flex">
+          <img
+            className="flex-shrink-0 w-10 h-10 rounded-full"
+            src="https://pbs.twimg.com/profile_images/1028605252168105990/xdHiCPOa_bigger.jpg"
+            alt="User's picture"
+          />
+          <div className="mx-3">
+            <span className="block font-bold leading-none">Yeri Pratama</span>
+            <span className="block text-gray-500">@_pirey</span>
+          </div>
+        </div>
+        <span>{assets.svg.ellipsis}</span>
+      </LightButton>
+    </>
+  )
+}
+
 function SideMenu() {
   return (
-    <Wrap className="flex-col justify-between py-1">
+    <Wrap className="flex-col justify-between w-full py-1">
       <div>
         <div className="">
           <a className="inline-block" href="#">
@@ -104,58 +159,21 @@ function SideMenu() {
             </LightButton>
           </a>
         </div>
-        <SideMenuItem>
-          <span className="text-blue-400">{assets.svg.home}</span>{" "}
-          <span className="ml-4 text-xl text-blue-400">Home</span>
-        </SideMenuItem>
-        <SideMenuItem>
-          <span>{assets.svg.explore}</span>{" "}
-          <span className="ml-4 text-xl">Explore</span>
-        </SideMenuItem>
-        <SideMenuItem>
-          <span>{assets.svg.notifications}</span>{" "}
-          <span className="ml-4 text-xl">Notification</span>
-        </SideMenuItem>
-        <SideMenuItem>
-          <span>{assets.svg.messages}</span>{" "}
-          <span className="ml-4 text-xl">Messages</span>
-        </SideMenuItem>
-        <SideMenuItem>
-          <span>{assets.svg.bookmarks}</span>{" "}
-          <span className="ml-4 text-xl">Bookmarks</span>
-        </SideMenuItem>
-        <SideMenuItem>
-          <span>{assets.svg.lists}</span>{" "}
-          <span className="ml-4 text-xl">Lists</span>
-        </SideMenuItem>
-        <SideMenuItem>
-          <span>{assets.svg.profile}</span>{" "}
-          <span className="ml-4 text-xl">Profile</span>
-        </SideMenuItem>
-        <SideMenuItem>
-          <span>{assets.svg.more}</span>{" "}
-          <span className="ml-4 text-xl">More</span>
-        </SideMenuItem>
+        <SideMenuItem active icon={assets.svg.home} title="Home" />
+        <SideMenuItem icon={assets.svg.explore} title="Explore" />
+        <SideMenuItem icon={assets.svg.notifications} title="Notification" />
+        <SideMenuItem icon={assets.svg.messages} title="Messages" />
+        <SideMenuItem icon={assets.svg.bookmarks} title="Bookmarks" />
+        <SideMenuItem icon={assets.svg.lists} title="Lists" />
+        <SideMenuItem icon={assets.svg.profile} title="Profile" />
+        <SideMenuItem icon={assets.svg.more} title="More" />
         <div className="mt-4">
-          <Button className="block max-w-full py-3 w-52">Tweet</Button>
+          <TweetButton />
         </div>
       </div>
 
       <div className="my-4">
-        <LightButton className="flex items-center justify-between px-4 py-3 hover:bg-blue-100">
-          <div className="flex">
-            <img
-              className="flex-shrink-0 w-10 h-10 rounded-full"
-              src="https://pbs.twimg.com/profile_images/1028605252168105990/xdHiCPOa_bigger.jpg"
-              alt="User's picture"
-            />
-            <div className="mx-3">
-              <span className="block font-bold leading-none">Yeri Pratama</span>
-              <span className="block text-gray-500">@_pirey</span>
-            </div>
-          </div>
-          <span>{assets.svg.ellipsis}</span>
-        </LightButton>
+        <UserMenu />
       </div>
     </Wrap>
   )

@@ -137,7 +137,7 @@ function TweetBox() {
     setFocused(true)
   }
   return (
-    <div className="">
+    <>
       <Wrap>
         <Avatar />
         <div className="flex flex-col flex-1">
@@ -166,7 +166,7 @@ function TweetBox() {
         </div>
       </Wrap>
       <Separator />
-    </div>
+    </>
   )
 }
 

@@ -23,7 +23,7 @@ export default function Home() {
               <StickyHeader>
                 <HomeHeader />
               </StickyHeader>
-              <div className="hidden md:block">
+              <div className="hidden sm:block">
                 <TweetBox />
               </div>
               <Tweet replyCount={18} retweetCount={3} likeCount={16} />
@@ -46,7 +46,7 @@ export default function Home() {
               <Tweet replyCount={0} retweetCount={0} likeCount={2} />
             </div>
             {/* right */}
-            <div className="hidden mr-4 w-80 lg:block">
+            <div className="hidden mx-4 w-80 lg:block">
               <StickyHeader>
                 <Search />
               </StickyHeader>

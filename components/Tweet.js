@@ -64,10 +64,10 @@ function Tweet({
   tweet = "Today's theme is #Cookies, #pixel_dailies",
 }) {
   return (
-    <Wrap className="text-gray-700 border-b border-gray-200 cursor-pointer hover:bg-gray-100">
+    <Wrap className="text-sm text-gray-700 border-b border-gray-200 cursor-pointer sm:text-base hover:bg-gray-100">
       <Avatar />
       <div className="flex-1 py-3">
-        <div className="flex justify-between -mb-2">
+        <div className="flex justify-between">
           <div className="flex space-x-1">
             <a href="#" className="flex space-x-1 group">
               <span
@@ -83,14 +83,14 @@ function Tweet({
               4m
             </a>
           </div>
-          <div className="">
+          <div className="-m-2">
             <LightButton className="text-gray-500 hover:text-blue-400 hover:bg-blue-100">
               {assets.svg.more}
             </LightButton>
           </div>
         </div>
 
-        <div className="">{tweet}</div>
+        <div className="mt-1 sm:mt-0">{tweet}</div>
 
         <Bottom>
           <ActionButton>

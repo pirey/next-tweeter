@@ -2,8 +2,10 @@ import HomeHeader from "../components/HomeHeader"
 import Search from "../components/Search"
 import SideMenu from "../components/SideMenu"
 import StickyHeader from "../components/StickyHeader"
+import Trends from "../components/Trends"
 import Tweet from "../components/Tweet"
 import TweetBox from "../components/TweetBox"
+import WhoToFollow from "../components/WhoToFollow"
 
 export default function Home() {
   return (
@@ -50,6 +52,12 @@ export default function Home() {
               <StickyHeader>
                 <Search />
               </StickyHeader>
+              <div className="mt-4">
+                <Trends />
+              </div>
+              <div className="mt-4">
+                <WhoToFollow />
+              </div>
             </div>
           </div>
         </div>
